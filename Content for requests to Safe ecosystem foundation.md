@@ -57,8 +57,10 @@ There is a stablecoin, a freelance marketplace, and a payment card among the Ubi
 Ubiquity DAO uses Gnosis Chain for payouts to DAO members and freelancers.  
 
 We offer Gnosis and Safe Ecosystem to partner in the creation of the Safest crypto card.
+
 Users' funds will be protected with the complete set of security features:
-- Using the Safe 
-- Shielding the real card information with automatically generated virtual cards (as on https://privacy.com/)
-- Customizable on-chain and common 2FA for card transaction confirmation
-- Abilities of white- and black-lists for incoming and outgoing transactions (by MCC, countries, specific addresses)
+- Using the Safe crypto wallet
+- Shielding the card information with temporary virtual cards (as on https://privacy.com/)
+- Ability to configure card transaction multisig with on-chain and common 2FA methods (a customizable analog of 3DS)
+- Abilitity to configure white- and black-lists, as well as spending limits for transactions (by MCC, countries, specific destinations)
+- Ability to protect funds by temporary card freezing in case or customizable fraud triggers
