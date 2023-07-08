@@ -36,7 +36,9 @@ Ubiquity DAO uses Gnosis Chain for payouts to DAO members and freelancers.
 
 DevPool is in beta testing with the open issues listed here https://github.com/ubiquity/devpool-directory
 Currently, the cost for DevPool services is only payout for freelancers without any fees for the DevPool.
-We offer you to place several open tasks in the DevPool. 
+We offer that DevPool will solve several issues currently open in your GitHub projects https://github.com/safe-global https://github.com/gnosischain
+
+Looking forward to your feedback.
 
 ---
 
@@ -64,3 +66,5 @@ Users' funds will be protected with the complete set of security features:
 - Ability to configure card transaction multisig with on-chain and common 2FA methods (a customizable analog of 3DS)
 - Abilitity to configure white- and black-lists, as well as spending limits for transactions (by MCC, countries, specific destinations)
 - Ability to protect funds by temporary card freezing in case or customizable fraud triggers
+
+Looking forward to your feedback and ideas.
