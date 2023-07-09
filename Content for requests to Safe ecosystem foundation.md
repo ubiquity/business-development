@@ -32,10 +32,10 @@ https://github.com/ubiquity/devpool-directory/issues
 
 DevPool is a Web3 freelance marketplace on top of GitHub. 
 It scales development throughput with talents available on GitHub and automates routine freelance management activities.
-Ubiquity DAO uses Gnosis Chain for payouts to DAO members and freelancers.
+Ubiquity uses Gnosis Chain for payouts to DAO members and freelancers.
 
-DevPool is in beta testing with the open issues listed here https://github.com/ubiquity/devpool-directory
-Currently, the cost for DevPool services is only payout for freelancers without any fees for the DevPool.
+DevPool is in beta testing with the open issues listed here https://github.com/ubiquity/devpool-directory/issues
+Currently, the cost for DevPool services is only payout for freelancers without any fees for the DevPool itself.
 We offer that DevPool will solve several issues currently open in your GitHub projects https://github.com/safe-global https://github.com/gnosischain
 
 Looking forward to your feedback.
@@ -55,16 +55,16 @@ https://ubq.fi/
 **PLEASE TELL US IN DETAIL WHAT YOUR PROJECT DOES, WHAT YOU WANT TO DO WITH THE SAFE, AND WHERE THE CORE CONTRIBUTORS CAN HELP (150 CHARACTERS MINIMUM)** 
 
 Ubiquity DAO is building an ecosystem bridging the gap between Web3 and traditional economies.
-There is a stablecoin, a freelance marketplace, and a payment card among the Ubiquity products.
-Ubiquity DAO uses Gnosis Chain for payouts to DAO members and freelancers.  
+We develop a stablecoin, a freelance marketplace, and plan to launch a crypto payment card.
+Ubiquity uses Gnosis Chain for payouts to DAO members and freelancers.  
 
-We offer Gnosis and Safe Ecosystem to partner in the creation of the Safest crypto card.
+We offer Gnosis and Safe Ecosystem to partner in the creation of the Safest crypto card. 
 
-Users' funds will be protected with the complete set of security features:
-- Using the Safe crypto wallet
-- Shielding the card information with temporary virtual cards (as on https://privacy.com/)
-- Ability to configure card transaction multisig with on-chain and common 2FA methods (a customizable analog of 3DS)
-- Abilitity to configure white- and black-lists, as well as spending limits for transactions (by MCC, countries, specific destinations)
-- Ability to protect funds by temporary card freezing in case or customizable fraud triggers
+It is planned, that users' funds will be protected with the complete set of security features:
+- Using the Safe crypto wallet.
+- Shielding the card information with temporary virtual cards (as on https://privacy.com/).
+- Ability to configure card transaction multisig with on-chain and common 2FA methods (a customizable analog of 3DS).
+- Abilitity to configure white- and black-lists, as well as spending limits for transactions (by MCC, countries, specific destinations).
+- Ability to protect funds by temporary card freezing in case of customizable fraud triggers.
 
 Looking forward to your feedback and ideas.
