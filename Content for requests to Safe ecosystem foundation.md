@@ -26,7 +26,7 @@ DevPool by Ubiquity DAO
 
 **COMPANY/PROJECT WEBSITE** 
 
-https://github.com/ubiquity/devpool-directory/issues
+https://github.com/ubiquity/devpool-directory/
 
 **PLEASE TELL US IN DETAIL WHAT YOUR PROJECT DOES, WHAT YOU WANT TO DO WITH THE SAFE, AND WHERE THE CORE CONTRIBUTORS CAN HELP (150 CHARACTERS MINIMUM)** 
 
