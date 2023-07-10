@@ -54,17 +54,17 @@ https://ubq.fi/
 
 **PLEASE TELL US IN DETAIL WHAT YOUR PROJECT DOES, WHAT YOU WANT TO DO WITH THE SAFE, AND WHERE THE CORE CONTRIBUTORS CAN HELP (150 CHARACTERS MINIMUM)** 
 
-Ubiquity DAO is building an ecosystem bridging the gap between Web3 and traditional economies.
-We develop a stablecoin, a freelance marketplace, and plan to launch a crypto payment card.
-Ubiquity uses Gnosis Chain for payouts to DAO members and freelancers.  
+- Ubiquity DAO is building an ecosystem bridging the gap between Web3 and traditional economies.
+- We develop a stablecoin, a bounty marketplace, and plan to launch fiat cashout options including bank transfers and a crypto debit card.
+- Ubiquity uses Gnosis Chain for payouts to DAO core contributors and bounty hunters.  
 
 We offer Gnosis and Safe Ecosystem to partner in the creation of the Safest crypto card. 
 
-It is planned, that users' funds will be protected with the complete set of security features:
-- Using the Safe crypto wallet.
-- Shielding the card information with temporary virtual cards (as on https://privacy.com/).
+It is planned that users' funds will be protected with the complete set of security features:
+- Using SAFE.
+- Shielding card information with temporary virtual cards (as on https://privacy.com/).
 - Ability to configure card transaction multisig with on-chain and common 2FA methods (a customizable analog of 3DS).
-- Abilitity to configure white- and black-lists, as well as spending limits for transactions (by MCC, countries, specific destinations).
+- Ability to configure white and blacklists, as well as spending limits for transactions (by MCC, countries, specific destinations).
 - Ability to protect funds by temporary card freezing in case of customizable fraud triggers.
 
 Looking forward to your feedback and ideas.
