@@ -35,7 +35,7 @@ It scales development throughput with talents available on GitHub and automates 
 Ubiquity uses Gnosis Chain for payouts to DAO members and freelancers.
 
 DevPool is in beta testing with the open issues listed here https://github.com/ubiquity/devpool-directory/issues
-Currently, the cost for DevPool services is only payout for freelancers without any fees for the DevPool itself.
+Currently, the cost for DevPool services is for projects to pay freelancers. However we do not incur any fees at this time.
 We offer that DevPool will solve several issues currently open in your GitHub projects https://github.com/safe-global https://github.com/gnosischain
 
 Looking forward to your feedback.
