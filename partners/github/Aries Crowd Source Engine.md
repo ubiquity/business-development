@@ -1,4 +1,3 @@
-*also available as finished html file in repo
 
 Aries Crowd Source Engine, extensible and deployed on DevPool
 
