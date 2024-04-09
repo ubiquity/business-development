@@ -128,7 +128,7 @@ There are many freelance platforms for developers, but none of them are leveragi
 
 > - Name of team leader
 
-アレクサンダー.eth https://github.com/pavlovcik
+アレクサンダー.eth https://github.com/0x4007
 
 > - Names of team members
 
@@ -159,7 +159,7 @@ Our team has deep and broad experience and skillsets. Our team is not only compr
 
 Please also provide the GitHub accounts of all team members. If they contain no activity, references to projects hosted elsewhere or live are also fine.
 
-> - [https://github.com/pavlovcik](https://github.com/pavlovcik)
+> - [https://github.com/0x4007](https://github.com/0x4007)
 > - [https://github.com/0xcodercrane](https://github.com/0xcodercrane)
 > - [https://github.com/rndquu](https://github.com/rndquu)
 > - [https://github.com/Steveantor](https://github.com/Steveantor)

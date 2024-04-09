@@ -140,7 +140,7 @@ Being built on top of GitHub means that DevPool enjoys all the features that are
    2. **URLs to Github 
       **Team members:
 
-      <https://github.com/pavlovcik>
+      <https://github.com/0x4007>
 
       <https://github.com/0xcodercrane>
 
