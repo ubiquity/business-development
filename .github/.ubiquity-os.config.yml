@@ -55,6 +55,8 @@ plugins:
                 collaboratorOnly: false
               - name: "Time: <1 Week"
                 collaboratorOnly: false
+              - name: "Time: <2 Weeks"
+                collaboratorOnly: false                
             priority:
               - name: "Priority: 0 (Regression)"
                 collaboratorOnly: false
