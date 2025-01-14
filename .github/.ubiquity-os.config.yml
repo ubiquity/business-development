@@ -18,15 +18,15 @@ plugins:
             - ADMIN
           requiredLabelsToStart:
             - name: "Priority: 1 (Normal)"
-              roles: ['collaborator', 'contributor']
+              allowedRoles: ['collaborator', 'contributor']
             - name: "Priority: 2 (Medium)"
-              roles: ['collaborator', 'contributor']            
+              allowedRoles: ['collaborator', 'contributor']            
             - name: "Priority: 3 (High)"
-              roles: ['collaborator']
+              allowedRoles: ['collaborator']
             - name: "Priority: 4 (Urgent)"
-              roles: ['collaborator']
+              allowedRoles: ['collaborator']
             - name: "Priority: 5 (Emergency)"
-              roles: ['collaborator']
+              allowedRoles: ['collaborator']
   - uses:
       - plugin: https://ubiquity-os-command-wallet-main.ubiquity.workers.dev
         with:
