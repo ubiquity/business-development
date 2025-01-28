@@ -34,8 +34,11 @@ plugins:
   - uses:
       - plugin: ubiquity-os-marketplace/command-ask@main
         with:
-          model: openai/o1-mini
-          openAiBaseUrl: https://openrouter.ai/api/v1
+          model: "openai/o1-mini"
+          openAiBaseUrl: "https://openrouter.ai/api/v1"
+          similarityThreshold: 0.9
+          maxDepth: 3
+          
   - uses:
       - plugin: https://ubiquity-os-command-query-user-main.ubiquity.workers.dev
         with:
