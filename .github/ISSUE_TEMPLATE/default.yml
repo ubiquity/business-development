@@ -1,0 +1,64 @@
+name: Default Issue Template
+description: Standard template for creating new issues
+title: "[Type] "
+labels: ["needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this issue!
+
+  - type: textarea
+    id: background
+    attributes:
+      label: Background Information
+      description: Provide context and background for this issue
+      placeholder: Explain the context and why this issue is needed...
+    validations:
+      required: true
+
+  - type: textarea
+    id: completion-criteria
+    attributes:
+      label: Completion Criteria
+      description: List the specific requirements that need to be met
+      placeholder: |
+        - [ ] Deliverable specification...
+        - [ ] Measurable goal/metric...
+        - [ ] Additional requirements...
+    validations:
+      required: true
+
+  - type: input
+    id: time-estimate
+    attributes:
+      label: Time Estimate
+      description: Estimated time to complete this task
+      placeholder: "e.g. 2 days, 1 week"
+    validations:
+      required: true
+
+  - type: textarea
+    id: relevant-links
+    attributes:
+      label: Relevant Links
+      description: Add any relevant links or references
+      placeholder: |
+        - [Description of link](URL)
+        - [Description of link](URL)
+        - [Description of link](URL)
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      description: Before submitting, please verify
+      options:
+        - label: I have added appropriate labels
+          required: true
+        - label: I have included a time estimate
+          required: true
+        - label: I have provided clear completion criteria
+          required: true
