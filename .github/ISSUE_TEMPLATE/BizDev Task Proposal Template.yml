@@ -1,0 +1,55 @@
+name: BizDev Task Proposal
+description: Standard template for bizdev task proposals at Ubiquity
+title: "Descriptive title starting with a verb"
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Examples:
+        ✅ "Add drippi.ai automation to Marketing Tech Stack"
+        ✅ "Create Standard Operating Procedures for Outreach Team"
+        ✅ "Manage the Consensus HK Campaign"
+
+  - type: checkboxes
+    id: time-estimate-confirmation
+    attributes:
+      label: Time Estimate
+      description: Go to "Labels" and type "Time:".  Select the appropriate time estimate.  
+      options:
+        - label: I have added a time estimate label
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: Background Information
+      description: 
+      placeholder: Explain the context and why this is needed...
+    validations:
+      required: true
+
+  - type: textarea
+    id: completion-criteria
+    attributes:
+      label: Completion Criteria
+      description: 
+      placeholder: |
+        - Deliverable specification...
+        - Measurable goal/metric...
+        - Additional requirements...
+    validations:
+      required: true
+
+  - type: textarea
+    id: relevant-links
+    attributes:
+      label: Relevant Links
+      description: Add any relevant links or references
+      placeholder: |
+        - [Description of link](URL)
+        - [Description of link](URL)
+        - [Description of link](URL)
+    validations:
+      required: false
