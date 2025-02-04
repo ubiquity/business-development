@@ -7,9 +7,9 @@ body:
     attributes:
       value: |
         Examples:
-        ✅ "Add drippi.ai automation to Marketing Tech Stack"
-        ✅ "Create Standard Operating Procedures for Outreach Team"
-        ✅ "Manage the Consensus HK Campaign"
+        - "Add drippi.ai automation to Marketing Tech Stack"
+        - "Create Standard Operating Procedures for Outreach Team"
+        - "Manage the Consensus HK Campaign"
 
   - type: checkboxes
     id: time-estimate-confirmation
