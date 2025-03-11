@@ -1,3 +1,7 @@
+// This script is meant to be run in the browser's developer console on the nReach platform.
+// It will scrape all pages of the table and make a CSV file
+// In order to work properly, you need to zoom out as much as possible so that all columns are visible due to the virtualization of the table
+// You can adjust the `colIds` object to add/remove columns you want to scrape
 (async () => {
     // A simple delay helper
     function sleep(ms) {
@@ -8,21 +12,26 @@
     const seenRowIds = new Set();
     const allRows = [];
 
-    // We'll define final columns:
-    // - Name
-    // - TelegramLink
-    // - TwitterLink
-    // - EmailLink
-    // - LinkedInLink
-    // - Company
-    // - Campaign
-    // - ReplyFunnel
     const colIds = {
-      name: 'name',
-      links: 'links',
-      company: 'company_name',
-      campaign: '0_0', // "Campaign" col
-      funnel: 'campaign_replied_funnel',
+      "Chains": "df_data.chains",
+      "EVM Support": "df_data.evm_support",
+      "Category": "df_data.high_level_categories",
+      "Tags": "df_data.categories",
+      "Funding": "df_data.total_funding",
+      "Last Funding Date": "df_data.latest_funding_round_date",
+      "TVL": "df_data.tvl",
+      "30d Volume": "df_data.dex_volume_metrics.total30d",
+      "30d Fees": "df_data.fee_metrics.total30d",
+      "Fully Diluted Market Cap": "df_data.token_fully_diluted_market_cap",
+      "30d Unique Wallets": "df_data.unique_active_wallets_30d",
+      "Genesis Date": "df_data.genesis_time",
+      "Latest Smart Contract Deployment": "df_data.latest_smart_contract_deployment_on_mainnet",
+      "Tweet Count": "df_data.tweet_count",
+      "Code Languages": "df_data.code_languages",
+      "Github Categories": "df_data.used_tool_categories",
+      "Active Members": "df_data.active_members",
+      "Investments": "df_data.num_investments",
+      "Latest Investment Date": "df_data.latest_investment_date",
     };
 
     // Locate the AG Grid's scrollable body container (for row virtualization)
@@ -64,40 +73,33 @@
 
     // Extract newly visible rows
     function extractVisibleRows() {
-      const rowNodes = document.querySelectorAll('[role="row"][aria-rowindex]');
-      for (const row of rowNodes) {
-        const rowIndex = parseInt(row.getAttribute('aria-rowindex'), 10);
-        if (rowIndex < 6) continue; // skip any header rows
-
+      const leftPanelRows = document.querySelectorAll('div.ag-pinned-left-cols-container > div[role="row"][aria-rowindex]');
+      const rightPanelContainer = document.querySelector("div.ag-center-cols-container");
+      for (const leftRow of leftPanelRows) {
         // row-id or aria-rowindex is our unique key
-        const rowKey = row.getAttribute('row-id') || row.getAttribute('aria-rowindex');
+        const rowKey = leftRow.getAttribute("row-id") || leftRow.getAttribute("aria-rowindex");
         if (seenRowIds.has(rowKey)) {
           continue;
         }
         seenRowIds.add(rowKey);
 
-        const nameCell     = row.querySelector(`[col-id="${colIds.name}"]`);
-        const linksCell    = row.querySelector(`[col-id="${colIds.links}"]`);
-        const companyCell  = row.querySelector(`[col-id="${colIds.company}"]`);
-        const campaignCell = row.querySelector(`[col-id="${colIds.campaign}"]`);
-        const funnelCell   = row.querySelector(`[col-id="${colIds.funnel}"]`);
+        const rightRow = rightPanelContainer.querySelector(`div[row-id="${rowKey}"]`);
 
-        const name     = nameCell?.innerText.trim() ?? '';
-        const company  = companyCell?.innerText.trim() ?? '';
-        const campaign = campaignCell?.innerText.trim() ?? '';
-        const funnel   = funnelCell?.innerText.trim() ?? '';
+        const nameCell = leftRow.querySelector(`[col-id="external_features.name"]`);
+        const name = nameCell?.innerText.trim() ?? "";
 
+        const data = {};
+        for (const [name, colId] of Object.entries(colIds)) {
+          data[name] = rightRow.querySelector(`[col-id="${colId}"]`)?.innerText.trim() ?? "";
+        }
+
+        const linksCell = rightRow.querySelector(`[col-id="df_data.available_links"]`);
         // Gather all anchors behind icons, etc.
-        const anchorTags = [...(linksCell?.querySelectorAll('a[href]') || [])];
+        const anchorTags = [...(linksCell?.querySelectorAll("a[href]") || [])];
         // Join them into a single string to parse
-        const combinedLinks = anchorTags.map(a => a.href).join(' ');
+        const combinedLinks = anchorTags.map((a) => a.href).join(" ");
 
-        const {
-          telegramLink,
-          twitterLink,
-          emailLink,
-          linkedInLink
-        } = parseLinks(combinedLinks);
+        const { telegramLink, twitterLink, emailLink, linkedInLink } = parseLinks(combinedLinks);
 
         allRows.push({
           Name: name,
@@ -105,9 +107,7 @@
           TwitterLink: twitterLink,
           EmailLink: emailLink,
           LinkedInLink: linkedInLink,
-          Company: company,
-          Campaign: campaign,
-          ReplyFunnel: funnel,
+          ...data,
         });
       }
     }
@@ -164,44 +164,23 @@
       }
     }
 
-    // Build final CSV
-    const headers = [
-      'Name',
-      'TelegramLink',
-      'TwitterLink',
-      'EmailLink',
-      'LinkedInLink',
-      'Company',
-      'Campaign',
-      'ReplyFunnel',
-    ];
+    const headers = ["Name", "TelegramLink", "TwitterLink", "EmailLink", "LinkedInLink", ...Object.keys(colIds)];
 
     const csvRows = [headers];
     for (const row of allRows) {
-      csvRows.push([
-        row.Name,
-        row.TelegramLink,
-        row.TwitterLink,
-        row.EmailLink,
-        row.LinkedInLink,
-        row.Company,
-        row.Campaign,
-        row.ReplyFunnel,
-      ]);
+      csvRows.push(Object.values(row));
     }
 
-    const csvString = csvRows.map(
-      rowArr => rowArr.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')
-    ).join('\n');
+    const csvString = csvRows.map((rowArr) => rowArr.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(",")).join("\n");
 
     // Download
-    const blobUrl = URL.createObjectURL(new Blob([csvString], { type: 'text/csv' }));
-    const linkEl = document.createElement('a');
+    const blobUrl = URL.createObjectURL(new Blob([csvString], { type: "text/csv" }));
+    const linkEl = document.createElement("a");
     linkEl.href = blobUrl;
-    linkEl.download = 'contacts.csv';
+    linkEl.download = "contacts.csv";
     document.body.appendChild(linkEl);
     linkEl.click();
     document.body.removeChild(linkEl);
 
     console.log(`Done! Scraped ${allRows.length} contacts over ${totalPages} pages.`);
-  })();
+})();
