@@ -81,7 +81,7 @@ plugins:
             fundExternalClosedIssue: false
   - skipBotEvents: false
     uses:
-      - plugin: ubiquity-os-marketplace/text-conversation-rewards@fix/disabled-message
+      - plugin: ubiquity-os-marketplace/text-conversation-rewards@main
         with:
           logLevel: debug
           evmNetworkId: 100
@@ -368,9 +368,9 @@ plugins:
                       ol:
                         score: 0
                         countWords: true
-            # permitGeneration: {}
+            permitGeneration: {}
             githubComment:
-              post: false
+              post: true
               debug: false
   - uses:
       - plugin: ubiquity-os-marketplace/daemon-disqualifier@main
