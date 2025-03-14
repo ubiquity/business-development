@@ -368,9 +368,9 @@ plugins:
                       ol:
                         score: 0
                         countWords: true
-            permitGeneration: {}
+            # permitGeneration: {}
             githubComment:
-              post: true
+              post: false
               debug: false
   - uses:
       - plugin: ubiquity-os-marketplace/daemon-disqualifier@main
