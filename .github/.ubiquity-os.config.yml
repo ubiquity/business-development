@@ -18,15 +18,22 @@ plugins:
             - ADMIN
           requiredLabelsToStart:
             - name: "Priority: 1 (Normal)"
-              allowedRoles: ['collaborator', 'contributor']
+              allowedRoles:
+                - collaborator
+                - contributor
             - name: "Priority: 2 (Medium)"
-              allowedRoles: ['collaborator', 'contributor']            
+              allowedRoles:
+                - collaborator
+                - contributor
             - name: "Priority: 3 (High)"
-              allowedRoles: ['collaborator']
+              allowedRoles:
+                - collaborator
             - name: "Priority: 4 (Urgent)"
-              allowedRoles: ['collaborator']
+              allowedRoles:
+                - collaborator
             - name: "Priority: 5 (Emergency)"
-              allowedRoles: ['collaborator']
+              allowedRoles:
+                - collaborator
   - uses:
       - plugin: https://ubiquity-os-command-wallet-main.ubiquity.workers.dev
         with:
@@ -34,11 +41,10 @@ plugins:
   - uses:
       - plugin: ubiquity-os-marketplace/command-ask@main
         with:
-          model: "anthropic/claude-3.5-sonnet"
-          openAiBaseUrl: "https://openrouter.ai/api/v1"
+          model: anthropic/claude-3.5-sonnet
+          openAiBaseUrl: https://openrouter.ai/api/v1
           similarityThreshold: 0.9
           maxDepth: 3
-          
   - uses:
       - plugin: https://ubiquity-os-command-query-user-main.ubiquity.workers.dev
         with:
@@ -61,7 +67,7 @@ plugins:
               - name: "Time: <1 Week"
                 collaboratorOnly: false
               - name: "Time: <2 Weeks"
-                collaboratorOnly: false                
+                collaboratorOnly: false
             priority:
               - name: "Priority: 0 (Regression)"
                 collaboratorOnly: false
@@ -76,9 +82,7 @@ plugins:
               - name: "Priority: 5 (Emergency)"
                 collaboratorOnly: false
           basePriceMultiplier: 2
-          publicAccessControl:
-            setLabel: true
-            fundExternalClosedIssue: false
+          publicAccessControl: false
   - skipBotEvents: false
     uses:
       - plugin: ubiquity-os-marketplace/text-conversation-rewards@main
