@@ -41,7 +41,7 @@ plugins:
   - uses:
       - plugin: ubiquity-os-marketplace/command-ask@main
         with:
-          model: anthropic/claude-3.5-sonnet
+          model: openrouter/optimus-alpha
           openAiBaseUrl: https://openrouter.ai/api/v1
           similarityThreshold: 0.9
           maxDepth: 3
@@ -95,7 +95,7 @@ plugins:
               enabled: true
               openAi:
                 endpoint: https://openrouter.ai/api/v1
-                model: https://openrouter.ai/api/v1
+                model: openrouter/optimus-alpha
             userExtractor:
               enabled: true
               redeemTask: true
