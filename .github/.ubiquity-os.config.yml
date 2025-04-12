@@ -95,6 +95,7 @@ plugins:
               enabled: true
               openAi:
                 endpoint: https://openrouter.ai/api/v1
+                model: https://openrouter.ai/api/v1
             userExtractor:
               enabled: true
               redeemTask: true
