@@ -91,6 +91,7 @@ plugins:
               enabled: true
               openAi:
                 endpoint: https://openrouter.ai/api/v1
+                model: openrouter/optimus-alpha
             userExtractor:
               enabled: true
               redeemTask: true
