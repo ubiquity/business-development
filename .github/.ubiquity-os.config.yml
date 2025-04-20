@@ -139,7 +139,7 @@ plugins:
               enabled: true
               openAi:
                 endpoint: https://openrouter.ai/api/v1
-                model: openrouter/optimus-alpha
+                model: deepseek/deepseek-chat-v3-0324:free
             userExtractor:
               enabled: true
               redeemTask: true
