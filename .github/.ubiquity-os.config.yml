@@ -67,6 +67,10 @@ plugins:
               allowedRoles: ['collaborator']
             - name: "Priority: 5 (Emergency)"
               allowedRoles: ['collaborator']
+          taskAccessControl:
+            usdPriceMax:
+              contributor: -1
+              collaborator: Infinity
   - uses:
       - plugin: https://ubiquity-os-command-wallet-main.ubiquity.workers.dev
         with:
@@ -131,6 +135,7 @@ plugins:
               enabled: true
               openAi:
                 endpoint: https://openrouter.ai/api/v1
+                model: openrouter/optimus-alpha
             userExtractor:
               enabled: true
               redeemTask: true
