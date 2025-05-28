@@ -173,6 +173,9 @@ plugins:
                     wordValue: 0
                     html: *tcrHtmlConfig
             permitGeneration: {}
+            simplificationIncentivizer: {}
+            payment:
+              automaticTransferMode: false
             githubComment:
               post: true
               debug: false
