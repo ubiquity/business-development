@@ -299,6 +299,8 @@ jobs:
 
 ## Appendix: Proven Search Queries (Copy-Paste Ready)
 
+> **📅 Maintenance Note:** Update date filters quarterly to ensure fresh results (lines with `pushed:>` and `created:>`).
+
 ```bash
 # High-value Algora projects
 gh search issues --label "💎 Bounty" --state open --sort updated --limit 30
