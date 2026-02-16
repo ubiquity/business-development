@@ -36,9 +36,9 @@ label:"good first issue" label:bounty
 - Active maintainer engagement
 - 10+ stars (filter out hobby projects)
 
-**Top Identified Repositories (Feb 2026):**
-- **coollabsio/coolify** (Algora, self-hosting platform, 30K+ stars)
-- **keephq/keep** (Algora, alerts management, 8K+ stars)
+**Top Identified Repositories** *(verified Feb 16, 2026 — star counts approximate)*:
+- **coollabsio/coolify** (Algora, self-hosting platform, ~30K stars)
+- **keephq/keep** (Algora, alerts management, ~8K stars)
 - **coder/registry** (Algora, development environments)
 - **permitio/opal** (Algora, authorization layer)
 - **CapSoftware/Cap** (Algora, screen recording)
@@ -299,7 +299,9 @@ jobs:
 
 ## Appendix: Proven Search Queries (Copy-Paste Ready)
 
-> **📅 Maintenance Note:** Update date filters quarterly to ensure fresh results (lines with `pushed:>` and `created:>`).
+> **📅 Maintenance Note:** Date filters below use 2024 baselines (examples as of Feb 2026). Update quarterly to match current date:  
+> - `pushed:>2024-06-01` → adjust to 6 months ago from today  
+> - `created:>2024-12-01` → adjust to 2 months ago from today
 
 ```bash
 # High-value Algora projects
@@ -326,4 +328,4 @@ gh search issues "algora OR opire OR gitcoin" --state open --sort created
 
 **Ready to execute.** This strategy balances quick wins (outreach blitz) with long-term growth (content marketing, automation). Focus on Tier 1 targets first—they have the highest conversion probability and shortest sales cycle.
 
-Let me know if you'd like me to implement the automated bounty scanner or help draft outreach templates!
+Please let me know if you'd like me to implement the automated bounty scanner or help draft outreach templates!
