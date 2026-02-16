@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+*.js.map
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+db/*.db
+db/*.db-shm
+db/*.db-wal
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pm2.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+.nyc_output/
