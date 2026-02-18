@@ -207,15 +207,17 @@ jobs:
           
       - name: Post to Slack/Discord
         if: steps.search.outputs.results != ''
+        env:
+          RESULTS: ${{ steps.search.outputs.results }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          # Requires SLACK_WEBHOOK_URL in repo secrets
-          curl -X POST "${{ secrets.SLACK_WEBHOOK_URL }}" \
+          PAYLOAD=$(jq -n --arg text "New bounty targets:\n$RESULTS" '{"text": $text}')
+          curl -X POST "$SLACK_WEBHOOK_URL" \
             -H 'Content-Type: application/json' \
-            -d "{\"text\": \"New bounty targets:\n${{ steps.search.outputs.results }}\"}"
+            -d "$PAYLOAD"
 ```
 
 **Note:** Requires `SLACK_WEBHOOK_URL` secret configured in repo settings.
-```
 
 ### Engagement Tracker (Google Sheets API)
 **Columns:**
