@@ -167,7 +167,7 @@ if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
 
 ## Data Flow
 
-```
+```text
 ┌────────────────────────────────────────────────────────────┐
 │ 1. User Submits Form on Landing Page                       │
 │    POST https://xp-api.ubq.fi/api/generate-xp-report       │
