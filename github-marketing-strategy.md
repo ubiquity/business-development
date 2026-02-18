@@ -16,7 +16,9 @@ This strategy leverages GitHub's native search capabilities to identify and enga
 ## 1. Target Audience Segmentation
 
 ### Tier 1: Active Bounty Platforms (Highest Priority)
-**Search Queries:**
+**Search Queries (GitHub Web UI):**
+> Run these at: https://github.com/search
+
 ```bash
 # Projects using Algora bounties
 label:"💎 Bounty" state:open
@@ -93,12 +95,20 @@ is:issue is:open label:"help wanted" comments:>5 created:>2024-12-01
 ```markdown
 Hi [Maintainer Name]! 👋
 
-Noticed you're using [Algora/Opire/manual bounties] for [repo name]. 
+I saw your recent [specific bounty `#123`] for [specific feature]. 
+[Comment on the technical approach or challenge - show genuine engagement]
 
 We built Ubiquity to solve the exact pain points bounty maintainers face:
 - **Automated payments** (no manual wallet tracking)
 - **Time tracking** (contributors log work, auto-calculate rewards)
 - **Multi-currency support** (USD, crypto, tokens)
+
+**IMPORTANT:** Only use this template if:
+1. You've genuinely reviewed the project and can reference specifics
+2. The maintainer has indicated openness to tooling suggestions
+3. You have permission to post marketing content (check repo guidelines)
+
+**Preferred:** Reach out via maintainer's listed email or Twitter DM first.
 
 Would you be open to a 15-min demo? We're onboarding 3-5 pilot projects this month.
 
@@ -167,19 +177,44 @@ name: Bounty Scout
 on:
   schedule:
     - cron: '0 9 * * *'  # 9 AM daily
+  workflow_dispatch:  # Allow manual testing
 jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - name: Search new bounty projects
+      - name: Setup GitHub CLI
         run: |
-          gh search issues \
+          type -p gh >/dev/null || (echo "Installing gh..." && \
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && \
+          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Search new bounty projects
+        id: search
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RESULTS=$(gh search issues \
             --label "💎 Bounty" \
             --created ">$(date -d '1 day ago' +%Y-%m-%d)" \
             --json repository,number,title \
-            --jq '.[] | "\(.repository.nameWithOwner) #\(.number)"'
+            --jq '.[] | "\(.repository.nameWithOwner) #\(.number): \(.title)"')
+          echo "$RESULTS"
+          echo "results<<EOF" >> $GITHUB_OUTPUT
+          echo "$RESULTS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
       - name: Post to Slack/Discord
-        # Notify growth team of new targets
+        if: steps.search.outputs.results != ''
+        run: |
+          # Requires SLACK_WEBHOOK_URL in repo secrets
+          curl -X POST "${{ secrets.SLACK_WEBHOOK_URL }}" \
+            -H 'Content-Type: application/json' \
+            -d "{\"text\": \"New bounty targets:\n${{ steps.search.outputs.results }}\"}"
+```
+
+**Note:** Requires `SLACK_WEBHOOK_URL` secret configured in repo settings.
 ```
 
 ### Engagement Tracker (Google Sheets API)
@@ -273,7 +308,9 @@ jobs:
 4. **Result:** Saved 5 hours/week on payment admin, converted to annual plan
 5. **Referral:** Coolify founder tweeted about Ubiquity → 12 inbound leads
 
-**ROI:** $200 marketing cost → $10,800 annual contract + 12 new leads
+**ROI:** ~$200 allocated cost-per-project (1/15 of monthly outreach budget) → $10,800 annual contract + 12 new leads
+
+**Note:** Assumes 15 outreach targets per month at $2,900 monthly budget = ~$193 per target.
 
 ---
 
