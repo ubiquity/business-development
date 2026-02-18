@@ -47,7 +47,9 @@ label:"good first issue" label:bounty
 - **ubiquity/business-development** (Opire, 6 active bounties, $4.2K pool)
 
 ### Tier 2: Web3/DAO/Crypto Projects
-**Search Queries:**
+**Search Queries (GitHub Web UI):**
+> Run these at: https://github.com/search
+
 ```bash
 # Web3 ecosystem
 topic:web3 state:open language:TypeScript stars:>100
@@ -63,7 +65,9 @@ topic:ethereum OR topic:solana language:Rust stars:>200
 - Community-driven (align with bounty culture)
 
 ### Tier 3: High-Velocity Open Source Projects
-**Search Queries:**
+**Search Queries (GitHub Web UI):**
+> Run these at: https://github.com/search
+
 ```bash
 # Projects with active contribution flow
 is:issue is:open label:"help wanted" comments:>5 created:>2024-12-01
@@ -182,14 +186,6 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup GitHub CLI
-        run: |
-          type -p gh >/dev/null || (echo "Installing gh..." && \
-          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && \
-          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
       - name: Search new bounty projects
         id: search
         env:
@@ -302,7 +298,7 @@ jobs:
 
 ## 9. Success Story Example
 
-**Hypothetical Case: coolify/coolify (30K stars, Algora user)**
+**Hypothetical Case: coollabsio/coolify (30K stars, Algora user)**
 
 1. **Outreach:** Commented on Issue #482 (Algora bounty for Docker optimization)
 2. **Demo:** Showed 1-click payment setup vs. manual wallet tracking
