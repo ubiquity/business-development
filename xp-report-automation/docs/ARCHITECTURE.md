@@ -37,7 +37,7 @@ CREATE TABLE processed_orgs (
     email TEXT,                       -- Recipient
     workflow_run_id INTEGER           -- GitHub Actions run
 );
-```sql
+```
 
 **Why SQLite?**
 - Simple deployment (single file)
@@ -61,7 +61,7 @@ CREATE TABLE processed_orgs (
        incentives: { enabled: true }
      }
    };
-   ```
+   ```typescript
 
 2. **Sign with X25519 private key:**
    ```typescript
@@ -87,7 +87,7 @@ CREATE TABLE processed_orgs (
        ref: 'main'
      }
    });
-   ```
+   ```typescript
 
 4. **Poll for completion:**
    - Wait 5 seconds for workflow to start
@@ -101,7 +101,7 @@ CREATE TABLE processed_orgs (
 1. Workflow completes successfully
 2. Extract workflow run URL
 3. Send email via SMTP:
-   ```
+   ```text
    Subject: Your Free XP Report is Ready!
    Body: 
      - Link to workflow run
@@ -163,7 +163,7 @@ if (repo.data.private) {
 if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
   return res.status(401).json({ error: 'Unauthorized' });
 }
-```
+```typescript
 
 ## Data Flow
 
@@ -176,7 +176,7 @@ if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
                         │
                         ▼
 ┌────────────────────────────────────────────────────────────┐
-│ 2. API Validates Request                                    │
+│ 2. API Validates Request                                   │
 │    - Parse GitHub URL                                      │
 │    - Check org not in processed_orgs table                 │
 │    - Verify repo exists and is public                      │
@@ -206,7 +206,7 @@ if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
 │    - Include call-to-action for paid service               │
 │    - Mark as completed in database                         │
 └────────────────────────────────────────────────────────────┘
-```
+```text
 
 ## Error Handling
 
@@ -282,7 +282,7 @@ if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
   "repo": "pay.ubq.fi",
   "email": "user@example.com"
 }
-```
+```json
 
 **Log levels:**
 - `info`: Normal operations
@@ -344,7 +344,7 @@ Instead of emailing workflow URL, generate actual pay.ubq.fi dashboard link:
 
 ```typescript
 const dashboardUrl = `https://pay.ubq.fi/${owner}/${repo}?month=${currentMonth}`;
-```typescript
+```
 
 **Requirements:**
 - pay.ubq.fi supports public dashboard URLs
@@ -364,7 +364,7 @@ await fetch('https://xp-api.ubq.fi/api/workflow-callback', {
     results: { ... }
   })
 });
-```typescript
+```
 
 **Benefits:**
 - No polling needed
