@@ -53,7 +53,7 @@ label:"good first issue" label:bounty
 ```bash
 # Web3 ecosystem
 topic:web3 state:open language:TypeScript stars:>100
-topic:dao stars:>50 pushed:>2024-01-01
+topic:dao stars:>50 pushed:>$(date -d '6 months ago' +%Y-%m-%d)
 
 # Blockchain development
 topic:ethereum OR topic:solana language:Rust stars:>200
@@ -70,7 +70,7 @@ topic:ethereum OR topic:solana language:Rust stars:>200
 
 ```bash
 # Projects with active contribution flow
-is:issue is:open label:"help wanted" comments:>5 created:>2024-12-01
+is:issue is:open label:"help wanted" comments:>5 created:>$(date -d '2 months ago' +%Y-%m-%d)
 
 # Projects seeking contributors
 "looking for contributors" OR "seeking maintainers" state:open
@@ -347,13 +347,13 @@ gh search issues --label "Price: 400 USD" --state open --sort created
 gh search issues --label "Price: 200 USD" --state open --sort created
 
 # Web3 projects seeking contributors
-gh search repos "topic:web3 stars:>100 pushed:>2024-06-01" --limit 50
+gh search repos "topic:web3 stars:>100 pushed:>$(date -d '6 months ago' +%Y-%m-%d)" --limit 50
 
 # DAO governance tools
 gh search repos "topic:dao language:TypeScript stars:>50"
 
 # Projects with active bounty programs
-gh search issues "bounty" --state open --comments ">5" --created ">2024-12-01"
+gh search issues "bounty" --state open --comments ">5" --created ">$(date -d '2 months ago' +%Y-%m-%d)"
 
 # Competitor mentions (steal their users)
 gh search issues "algora OR opire OR gitcoin" --state open --sort created
