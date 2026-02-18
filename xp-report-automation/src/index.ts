@@ -13,6 +13,7 @@ app.use(express.json());
 
 // Initialize database
 const db = new Database(process.env.DB_PATH || './db/xp-reports.db');
+db.pragma('journal_mode = WAL');
 db.exec(`
   CREATE TABLE IF NOT EXISTS processed_orgs (
     org_name TEXT PRIMARY KEY,

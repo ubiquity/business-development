@@ -37,7 +37,7 @@ CREATE TABLE processed_orgs (
     email TEXT,                       -- Recipient
     workflow_run_id INTEGER           -- GitHub Actions run
 );
-```
+```text
 
 **Why SQLite?**
 - Simple deployment (single file)
@@ -140,7 +140,7 @@ CREATE TABLE processed_orgs (
 **Key generation:**
 ```bash
 openssl rand -hex 32  # Generates 64-char hex string
-```
+```text
 
 ### 3. Public Repos Only
 
@@ -152,7 +152,7 @@ const repo = await octokit.repos.get({ owner, repo });
 if (repo.data.private) {
   return res.status(400).json({ error: 'Repository must be public' });
 }
-```
+```text
 
 ### 4. Admin-Only Stats
 
@@ -163,11 +163,11 @@ if (repo.data.private) {
 if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
   return res.status(401).json({ error: 'Unauthorized' });
 }
-```
+```text
 
 ## Data Flow
 
-```
+```text
 ┌────────────────────────────────────────────────────────────┐
 │ 1. User Submits Form on Landing Page                       │
 │    POST https://xp-api.ubq.fi/api/generate-xp-report       │
@@ -206,7 +206,7 @@ if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
 │    - Include call-to-action for paid service               │
 │    - Mark as completed in database                         │
 └────────────────────────────────────────────────────────────┘
-```
+```text
 
 ## Error Handling
 
@@ -282,7 +282,7 @@ if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
   "repo": "pay.ubq.fi",
   "email": "user@example.com"
 }
-```
+```text
 
 **Log levels:**
 - `info`: Normal operations
@@ -322,7 +322,7 @@ if (req.headers['x-api-key'] !== process.env.ADMIN_API_KEY) {
 ```bash
 # Daily cron job
 0 0 * * * cp /app/db/xp-reports.db /backups/xp-reports-$(date +\%Y\%m\%d).db
-```
+```text
 
 **Retention:**
 - Daily backups: 30 days
@@ -344,7 +344,7 @@ Instead of emailing workflow URL, generate actual pay.ubq.fi dashboard link:
 
 ```typescript
 const dashboardUrl = `https://pay.ubq.fi/${owner}/${repo}?month=${currentMonth}`;
-```
+```text
 
 **Requirements:**
 - pay.ubq.fi supports public dashboard URLs
@@ -364,7 +364,7 @@ await fetch('https://xp-api.ubq.fi/api/workflow-callback', {
     results: { ... }
   })
 });
-```
+```text
 
 **Benefits:**
 - No polling needed
