@@ -287,6 +287,6 @@ app.get('/api/stats', (req: Request, res: Response) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, '127.0.0.1', () => {
   console.log(`XP Report Automation API running on port ${PORT}`);
 });
