@@ -51,7 +51,7 @@ interface XPReportRequest {
  * Validates HTTPS protocol and proper GitHub domain
  */
 function parseRepoUrl(url: string): { owner: string; repo: string } | null {
-  const match = url.match(/^https?:\/\/github\.com\/([^\/]+)\/([^\/\s?#]+)/);
+  const match = url.match(/^https:\/\/github\.com\/([^\/]+)\/([^\/\s?#]+)/);
   if (!match) return null;
   return { owner: match[1], repo: match[2].replace(/\.git$/, '') };
 }
@@ -65,21 +65,23 @@ function hasOrgBeenProcessed(orgName: string): boolean {
 }
 
 /**
- * Mark organization as processed with status tracking
+ * Insert organization record with conflict handling
+ * Returns true if inserted, false if already exists
  */
-function markOrgAsProcessed(orgName: string, repoUrl: string, email: string, workflowRunId: number, status: string = 'pending') {
+function insertOrgRecord(orgName: string, repoUrl: string, email: string): boolean {
   const stmt = db.prepare(
-    'INSERT INTO processed_orgs (org_name, repo_url, email, workflow_run_id, status) VALUES (?, ?, ?, ?, ?)'
+    "INSERT OR IGNORE INTO processed_orgs (org_name, repo_url, email, workflow_run_id, status) VALUES (?, ?, ?, 0, 'pending')"
   );
-  stmt.run(orgName, repoUrl, email, workflowRunId, status);
+  const result = stmt.run(orgName, repoUrl, email);
+  return result.changes > 0;
 }
 
 /**
- * Update organization processing status
+ * Update organization processing status and workflow_run_id
  */
-function updateOrgStatus(orgName: string, status: string) {
-  const stmt = db.prepare('UPDATE processed_orgs SET status = ? WHERE org_name = ?');
-  stmt.run(status, orgName);
+function updateOrgStatus(orgName: string, workflowRunId: number, status: string) {
+  const stmt = db.prepare('UPDATE processed_orgs SET workflow_run_id = ?, status = ? WHERE org_name = ?');
+  stmt.run(workflowRunId, status, orgName);
 }
 
 /**
@@ -110,6 +112,9 @@ function generateSignature(payload: string): string {
  * Trigger text-conversation-rewards workflow
  */
 async function triggerXPCalculation(owner: string, repo: string, email: string): Promise<number> {
+  // Capture dispatch time BEFORE triggering workflow
+  const dispatchTime = new Date().toISOString();
+  
   // Prepare workflow inputs
   const eventPayload = {
     repository: {
@@ -151,7 +156,6 @@ async function triggerXPCalculation(owner: string, repo: string, email: string):
   });
 
   // Get the workflow run ID with correlation to avoid race conditions
-  const dispatchTime = new Date().toISOString();
   let workflowRunId = 0;
   
   for (let i = 0; i < 10; i++) {
@@ -164,8 +168,11 @@ async function triggerXPCalculation(owner: string, repo: string, email: string):
       per_page: 5,
     });
     
-    // Find the workflow_dispatch event triggered by us
-    const match = runs.data.workflow_runs.find(r => r.event === 'workflow_dispatch');
+    // Find the workflow_dispatch event triggered by us with matching stateId
+    const match = runs.data.workflow_runs.find(r => 
+      r.event === 'workflow_dispatch' && 
+      new Date(r.created_at) >= new Date(dispatchTime)
+    );
     if (match) {
       workflowRunId = match.id;
       break;
@@ -262,8 +269,11 @@ app.post('/api/generate-xp-report', async (req: Request, res: Response) => {
 
     const { owner, repo } = parsed;
 
-    // Check if org already processed
-    if (hasOrgBeenProcessed(owner)) {
+    // ATOMIC CHECK-AND-INSERT: Insert record first with conflict handling
+    // This prevents TOCTOU race condition where concurrent requests could both pass the check
+    const inserted = insertOrgRecord(owner, repoUrl, email);
+    if (!inserted) {
+      // Record already exists (and not failed), reject the request
       return res.status(403).json({
         error: 'Organization already received a free report',
         message: 'Only one free report per organization is allowed. Please contact sales for additional reports.',
@@ -274,17 +284,21 @@ app.post('/api/generate-xp-report', async (req: Request, res: Response) => {
     try {
       const repoData = await octokit.repos.get({ owner, repo });
       if (repoData.data.private) {
+        // Mark as failed since we can't process private repos
+        updateOrgStatus(owner, 0, 'failed');
         return res.status(400).json({ error: 'Repository must be public' });
       }
     } catch (error) {
+      // Mark as failed since repo not found/inaccessible
+      updateOrgStatus(owner, 0, 'failed');
       return res.status(404).json({ error: 'Repository not found or not accessible' });
     }
 
     // Trigger XP calculation
     const workflowRunId = await triggerXPCalculation(owner, repo, email);
 
-    // Mark as processed immediately to prevent double-processing
-    markOrgAsProcessed(owner, repoUrl, email, workflowRunId, 'pending');
+    // Update record with workflow run ID
+    updateOrgStatus(owner, workflowRunId, 'pending');
 
     // Return immediately with pending status
     res.status(202).json({
@@ -299,10 +313,10 @@ app.post('/api/generate-xp-report', async (req: Request, res: Response) => {
       try {
         const workflowUrl = await waitForWorkflowCompletion(workflowRunId);
         await sendEmailReport(email, repoUrl, workflowUrl);
-        updateOrgStatus(owner, 'completed');
+        updateOrgStatus(owner, workflowRunId, 'completed');
       } catch (error) {
         console.error('Background processing error:', error);
-        updateOrgStatus(owner, 'failed');
+        updateOrgStatus(owner, workflowRunId, 'failed');
         // Could implement retry logic or admin notification here
       }
     })();
