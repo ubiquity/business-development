@@ -41,9 +41,9 @@ Opire is a bounty platform for open-source software that enables anyone to fund 
 
 | Tier | Fee | Benefits |
 |------|-----|----------|
-| **Individual** | Standard fee | Basic bounty creation |
-| **Organization** | 50-100% discount | Reduced fees for members |
-| **Premium Org** | 100% fee waiver | Webhooks, featured bounties, external member discounts |
+| **Individual** | 4% Opire + 5.25% + $0.85 Stripe | Basic bounty creation |
+| **Organization** | 50-100% discount on Opire fee | Reduced fees for members |
+| **Premium Org** | 100% Opire fee waiver | Webhooks, featured bounties, external member discounts |
 
 ---
 
@@ -60,7 +60,7 @@ Based on GitHub search and platform reconnaissance:
 | **microg/GmsCore** | $1,340 | Java | WearOS support (#2843) |
 | **zed-industries/zed** | $485 | Rust | Helix keymap integration |
 | **keycloak/keycloak** | $400 | Java | IAM features |
-| **AutoGPT** | Active | Python | AI agent framework |
+| **Significant-Gravitas/AutoGPT** | Active | Python | AI agent framework |
 | **autokey/autokey** | $40-$200 | Python | Keyboard automation, Wayland support |
 
 **Partner Demographics**:
@@ -76,7 +76,7 @@ Based on GitHub search and platform reconnaissance:
 **Contact**:
 - Website: https://opire.dev/
 - GitHub: https://github.com/Opire
-- Discord: 250+ members (https://discord.gg/f42kx7cM)
+- Discord: https://discord.gg/jWwwsHRbnJ
 - LinkedIn: 267 followers
 - Email: contact@rruger.dev
 - WhatsApp: +34 635 810 961
@@ -207,7 +207,7 @@ Based on GitHub search and platform reconnaissance:
    - Subject: "Partnership Opportunity: Ubiquity DAO + Opire Collaboration"
 
 2. **Join Opire Discord**
-   - Link: https://discord.gg/f42kx7cM
+   - Link: https://discord.gg/jWwwsHRbnJ
    - Introduce Ubiquity DAO in #general
    - Monitor bounty discussions
 
@@ -226,7 +226,7 @@ Based on GitHub search and platform reconnaissance:
 
 **Low-Commitment Tests**:
 1. **Cross-Promotion Trial**:
-   - Ubiquity features 3 Opire partner projects in recruiting#11
+   - Ubiquity features 3 Opire partner projects in recruiting channels
    - Opire tweets about Ubiquity DAO bounty system
    - Track referral traffic and conversions
 
@@ -340,9 +340,9 @@ Based on user-provided intelligence and GitHub reconnaissance:
 9. **Leantime/leantime** - $200 (PHP)
 10. **storybookjs/storybook** - $160 (TypeScript)
 11. **typeorm/typeorm** - $120 (TypeScript)
-12. **three.js** - $100 (JavaScript)
+12. **mrdoob/three.js** - $100 (JavaScript)
 13. **pulumi/pulumi** - $100 (Go)
-14. **beekeeper-studio** - $100 (TypeScript)
+14. **beekeeper-studio/beekeeper-studio** - $100 (TypeScript)
 15. **ToolJet/ToolJet** - $95 (JavaScript)
 16. **strapi/strapi** - $90 (TypeScript)
 17. **AutoGPT** (Significant-Gravitas) - Active bounties
@@ -383,7 +383,7 @@ Based on user-provided intelligence and GitHub reconnaissance:
   - Issue #89 comments (v4d33m's intel)
   
 - **Secondary**:
-  - Opire Discord (https://discord.gg/f42kx7cM)
+  - Opire Discord (https://discord.gg/jWwwsHRbnJ)
   - Opire LinkedIn (https://www.linkedin.com/company/opire)
   - GitHub projects with Opire bounties
 
