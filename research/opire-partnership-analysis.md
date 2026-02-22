@@ -369,7 +369,7 @@ Based on user-provided intelligence and GitHub reconnaissance:
 > 
 > Would you be open to a quick 30-minute intro call to explore if there's a fit? I'm thinking we could start with a small pilot (e.g., cross-promoting a few bounties) and see where it goes.
 > 
-> Please let me know your availability next week!
+> I would greatly appreciate it if you could share your availability for next week.
 > 
 > Best,  
 > [Your Name]  
