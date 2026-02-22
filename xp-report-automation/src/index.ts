@@ -14,6 +14,7 @@ app.use(express.json());
 // Initialize database
 const db = new Database(process.env.DB_PATH || './db/xp-reports.db');
 db.pragma('journal_mode = WAL');
+db.pragma('busy_timeout = 5000');
 db.exec(`
   CREATE TABLE IF NOT EXISTS processed_orgs (
     org_name TEXT PRIMARY KEY,
@@ -288,6 +289,7 @@ app.get('/api/stats', (req: Request, res: Response) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, '127.0.0.1', () => {
-  console.log(`XP Report Automation API running on port ${PORT}`);
+const HOST = process.env.HOST || '0.0.0.0';
+app.listen(PORT, HOST, () => {
+  console.log(`XP Report Automation API listening on ${HOST}:${PORT}`);
 });

@@ -72,6 +72,14 @@ CREATE TABLE processed_orgs (
 );
 ```
 
+**Database Mode:**  
+This service uses SQLite with Write-Ahead Logging (WAL) mode for improved concurrency:  
+- Allows simultaneous reads while writing  
+- Automatically creates `-wal` and `-shm` files alongside the database  
+- **Backup consideration**: Include `.db`, `.db-wal`, and `.db-shm` files  
+- **Container volumes**: Mount the entire db/ directory, not just the .db file
+
+
 ## Installation
 
 ### Prerequisites
@@ -102,7 +110,8 @@ CREATE TABLE processed_orgs (
    - `X25519_PRIVATE_KEY`: 64-char hex key (generate: `openssl rand -hex 32`)
    - `SMTP_*`: Email server credentials
    - `ADMIN_API_KEY`: Random string for admin access
-
+   - `PORT`: Server port (default: 3000)
+   - `HOST`: Bind address (default: 0.0.0.0; use 127.0.0.1 for localhost-only)
 3. **Initialize database:**
 
    ```bash
