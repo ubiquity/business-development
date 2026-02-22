@@ -93,7 +93,7 @@ function generateSignature(payload: string): string {
 /**
  * Trigger text-conversation-rewards workflow
  */
-async function triggerXPCalculation(owner: string, repo: string, email: string): Promise<number> {
+async function triggerXPCalculation(owner: string, repo: string): Promise<number> {
   // Prepare workflow inputs
   const eventPayload = {
     repository: {
@@ -236,7 +236,7 @@ app.post('/api/generate-xp-report', async (req: Request, res: Response) => {
     }
 
     // Trigger XP calculation
-    const workflowRunId = await triggerXPCalculation(owner, repo, email);
+    const workflowRunId = await triggerXPCalculation(owner, repo);
 
     // Mark as processed immediately to prevent double-processing
     markOrgAsProcessed(owner, repoUrl, email, workflowRunId);
