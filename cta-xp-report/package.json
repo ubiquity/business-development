@@ -1,0 +1,10 @@
+{
+  "name": "cta-xp-report-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prototype service logic for issue #196 CTA report automation",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test"
+  }
+}
