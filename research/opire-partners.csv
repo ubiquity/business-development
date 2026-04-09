@@ -1,3 +1,15 @@
-project,github_url,focus,bounty_model,estimated_developers,contact_method
-LuxAlgo,https://github.com/Lux-AI,Trading Algorithms,Bounty labels,50+,GitHub Issues
-TorchTrade,https://github.com/TorchTrade/torchtrade,RL Trading,Bounty labels,30+,GitHub Issues
+project,github_url,stars,focus,tech_stack,bounty_range,has_opire_bot,contact_method,contact_github,notes
+Opire Docs,https://github.com/Opire/docs,18,Documentation,MDX,N/A,Yes (own),GitHub Issues,Opire,Official Opire documentation repo
+Opire Frontend,https://github.com/Opire/frontend,10,Web Platform,TypeScript/Next.js,N/A,Yes (own),GitHub Issues,Opire,Main platform frontend
+Opire Website,https://github.com/Opire/website,9,Marketing,TypeScript/Next.js,N/A,Yes (own),GitHub Issues,Opire,Marketing website
+Opire Design System,https://github.com/Opire/design-system,3,UI Components,TypeScript,N/A,Yes (own),GitHub Issues,Opire,Shared component library
+tenstorrent/tt-metal,https://github.com/tenstorrent/tt-metal,High,AI/ML Hardware,C++/Metal,$3500-$10000,Unknown,GitHub Issues,tenstorrent,Highest bounty values in ecosystem
+calcom/cal.com,https://github.com/calcom/cal.com,Very High,Scheduling Platform,TypeScript/React,$50-$100,Unknown,GitHub Issues,calcom,Popular OSS scheduling tool
+coolify,https://github.com/coollabsio/coolify,Very High,Self-Hosting Platform,PHP/Laravel,$7-$100,Unknown,GitHub Issues,coollabsio,Herapest/Vercel alternative
+activepieces,https://github.com/activepieces/activepieces,High,Automation Platform,TypeScript,$50-$100,Unknown,GitHub Issues,activepieces,Zapier alternative
+zio/zio,https://github.com/zio/zio,High,Scala Framework,Scala,$150-$1000,Unknown,GitHub Issues,zio,Scala ecosystem core
+FinMind,https://github.com/rohitdash08/FinMind,Medium,Finance AI,TypeScript,$200-$1000,Unknown,GitHub Issues,rohitdash08,AI-powered finance tool
+archestra-ai/archestra,https://github.com/archestra-ai/archestra,Medium,AI Platform,TypeScript,$100-$500,Unknown,GitHub Issues,archestra-ai,AI-focused platform
+AncientBeast,https://github.com/FreezingMoon/AncientBeast,Medium,Strategy Game,JS/CSS,8-10 XTR,Unknown,GitHub Issues,FreezingMoon,Open-source strategy game
+claude-builders-bounty,https://github.com/claude-builders-bounty/claude-builders-bounty,Low,AI Automation,Bash/JS/n8n,$50-$200,Unknown,GitHub Issues,claude-builders-bounty,AI agent bounties
+JuanM94/awesome-bounties,https://github.com/JuanM94/awesome-bounties,0,Bounty Directory,Markdown,N/A,N/A,GitHub Issues,JuanM94,Curated bounty listing (bot-maintained)
