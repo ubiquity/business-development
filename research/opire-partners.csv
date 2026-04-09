@@ -1,0 +1,3 @@
+project,github_url,focus,bounty_model,estimated_developers,contact_method
+LuxAlgo,https://github.com/Lux-AI,Trading Algorithms,Bounty labels,50+,GitHub Issues
+TorchTrade,https://github.com/TorchTrade/torchtrade,RL Trading,Bounty labels,30+,GitHub Issues
