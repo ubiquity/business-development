@@ -1,0 +1,1 @@
+{"name":"github-prospector","version":"1.0.0","description":"GitHub marketing prospector","main":"dist/index.js","scripts":{"start":"ts-node src/index.ts"}}
