@@ -76,18 +76,18 @@ Recommended action:
 
 These were found from recently updated GitHub bounty/reward searches. Revalidate before outreach because issue state changes quickly.
 
-| Target | Signal | Why it matters for Ubiquity |
-| --- | --- | --- |
-| [ubiquity-os-marketplace/daemon-disqualifier#135](https://github.com/ubiquity-os-marketplace/daemon-disqualifier/issues/135) | UbiquityOS labels: `Price: 75 USD`, `Time: 2 Hours` | Internal reference for how Ubiquity issue pricing appears in GitHub search. |
-| [claude-builders-bounty#1](https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1) | Active `BOUNTY $50`, high comment velocity | Shows demand for AI-agent work bounties and structured claim workflows. |
-| [SecureBananaLabs/bug-bounty#30](https://github.com/SecureBananaLabs/bug-bounty/issues/30) | `good first issue`, bounty labels, high-dollar reward | Useful for studying AI-agent-friendly bounty positioning and trust signals. |
-| [Expensify/App#88504](https://github.com/Expensify/App/issues/88504) | Due-for-payment issue with USD amount | Mature public payout workflow; good benchmark for transparency and payment language. |
-| [tscircuit/prompt-benchmarks#45](https://github.com/tscircuit/prompt-benchmarks/issues/45) | Algora $5 bounty with attempt/claim bot flow | Low-value but clear example of automated bounty lifecycle. |
-| [tscircuit/kicad-component-converter#114](https://github.com/tscircuit/kicad-component-converter/issues/114) | Algora $50 bounty, many attempts | High competition; useful to study where bounty workflows get noisy. |
-| [Scottcjn/rustchain-bounties#71](https://github.com/Scottcjn/rustchain-bounties/issues/71) | Ongoing bug bounty program, active community | Crypto/community bounty structure that may value wallet-native payouts. |
-| [Scottcjn/rustchain-bounties#73](https://github.com/Scottcjn/rustchain-bounties/issues/73) | Code review bounty program with very high activity | Good example of a repeatable non-code bounty workflow. |
-| [XDC-Community/XDPoSChain#1](https://github.com/XDC-Community/XDPoSChain/issues/1) | Gitcoin bounty label | Web3 ecosystem lead where contributor incentives are already accepted. |
-| [daytonaio/content#13](https://github.com/daytonaio/content/issues/13) | Recent bounty-tagged content task | Content bounty candidate; useful for comparing non-code reward workflows. |
+| Target | Signal | Why it matters for Ubiquity | Outreach eligible |
+| --- | --- | --- | --- |
+| [ubiquity-os-marketplace/daemon-disqualifier#135](https://github.com/ubiquity-os-marketplace/daemon-disqualifier/issues/135) | UbiquityOS labels: `Price: 75 USD`, `Time: 2 Hours` | Internal reference for how Ubiquity issue pricing appears in GitHub search. | No (reference only) |
+| [claude-builders-bounty#1](https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1) | Active `BOUNTY $50`, high comment velocity | Shows demand for AI-agent work bounties and structured claim workflows. | Yes |
+| [SecureBananaLabs/bug-bounty#30](https://github.com/SecureBananaLabs/bug-bounty/issues/30) | `good first issue`, bounty labels, high-dollar reward | Useful for studying AI-agent-friendly bounty positioning and trust signals. | Yes |
+| [Expensify/App#88504](https://github.com/Expensify/App/issues/88504) | Due-for-payment issue with USD amount | Mature public payout workflow; good benchmark for transparency and payment language. | Yes |
+| [tscircuit/prompt-benchmarks#45](https://github.com/tscircuit/prompt-benchmarks/issues/45) | Algora $5 bounty with attempt/claim bot flow | Low-value but clear example of automated bounty lifecycle. | Yes |
+| [tscircuit/kicad-component-converter#114](https://github.com/tscircuit/kicad-component-converter/issues/114) | Algora $50 bounty, many attempts | High competition; useful to study where bounty workflows get noisy. | Yes |
+| [Scottcjn/rustchain-bounties#71](https://github.com/Scottcjn/rustchain-bounties/issues/71) | Ongoing bug bounty program, active community | Crypto/community bounty structure that may value wallet-native payouts. | Yes |
+| [Scottcjn/rustchain-bounties#73](https://github.com/Scottcjn/rustchain-bounties/issues/73) | Code review bounty program with very high activity | Good example of a repeatable non-code bounty workflow. | Yes |
+| [XDC-Community/XDPoSChain#1](https://github.com/XDC-Community/XDPoSChain/issues/1) | Gitcoin bounty label | Web3 ecosystem lead where contributor incentives are already accepted. | Yes |
+| [daytonaio/content#13](https://github.com/daytonaio/content/issues/13) | Recent bounty-tagged content task | Content bounty candidate; useful for comparing non-code reward workflows. | Yes |
 
 ## 6. Outreach Rules
 
