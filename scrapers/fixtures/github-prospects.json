@@ -1,0 +1,94 @@
+{
+  "now": "2026-06-07T00:00:00Z",
+  "search_results": [
+    {
+      "mode": "bounties",
+      "query": "fixture bounty query",
+      "items": [
+        {
+          "repository_url": "https://api.github.com/repos/example/alpha",
+          "number": 1,
+          "title": "Fund an implementation bounty",
+          "html_url": "https://github.com/example/alpha/issues/1",
+          "state": "open",
+          "updated_at": "2026-06-06T00:00:00Z",
+          "labels": [{ "name": "bounty" }]
+        },
+        {
+          "repository_url": "https://api.github.com/repos/example/beta",
+          "number": 5,
+          "title": "Reward documentation contributors",
+          "html_url": "https://github.com/example/beta/issues/5",
+          "state": "open",
+          "updated_at": "2026-05-20T00:00:00Z",
+          "labels": []
+        },
+        {
+          "repository_url": "https://api.github.com/repos/example/archived",
+          "number": 9,
+          "title": "Old bounty",
+          "html_url": "https://github.com/example/archived/issues/9",
+          "state": "open",
+          "updated_at": "2024-01-01T00:00:00Z",
+          "labels": []
+        }
+      ]
+    },
+    {
+      "mode": "growth",
+      "query": "fixture growth query",
+      "items": [
+        {
+          "repository_url": "https://api.github.com/repos/example/alpha",
+          "number": 2,
+          "title": "Community growth plan",
+          "html_url": "https://github.com/example/alpha/issues/2",
+          "state": "open",
+          "updated_at": "2026-06-05T00:00:00Z",
+          "labels": [{ "name": "community" }]
+        }
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "full_name": "example/alpha",
+      "html_url": "https://github.com/example/alpha",
+      "owner": { "type": "Organization" },
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-06-06T00:00:00Z",
+      "stargazers_count": 1500,
+      "forks_count": 200,
+      "open_issues_count": 42,
+      "language": "TypeScript",
+      "homepage": "https://alpha.example"
+    },
+    {
+      "full_name": "example/beta",
+      "html_url": "https://github.com/example/beta",
+      "owner": { "type": "Organization" },
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-04-15T00:00:00Z",
+      "stargazers_count": 80,
+      "forks_count": 8,
+      "open_issues_count": 7,
+      "language": "Go",
+      "homepage": ""
+    },
+    {
+      "full_name": "example/archived",
+      "html_url": "https://github.com/example/archived",
+      "owner": { "type": "User" },
+      "archived": true,
+      "disabled": false,
+      "pushed_at": "2024-01-01T00:00:00Z",
+      "stargazers_count": 5000,
+      "forks_count": 500,
+      "open_issues_count": 100,
+      "language": "Rust",
+      "homepage": ""
+    }
+  ]
+}
