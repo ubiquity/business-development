@@ -2,6 +2,8 @@
 
 Issue: https://github.com/ubiquity/business-development/issues/90
 
+Closes #90.
+
 Goal: use GitHub search to find teams and contributors already working around bounties, then route the best matches into Ubiquity outreach.
 
 ## Why GitHub Search Works
