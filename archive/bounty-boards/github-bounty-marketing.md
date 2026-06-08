@@ -1,4 +1,4 @@
-# GitHub Based Marketing
+# GitHub-Based Marketing
 
 Issue: https://github.com/ubiquity/business-development/issues/90
 
@@ -19,7 +19,7 @@ This is warmer than generic Web3 or developer outreach because the problem is vi
 
 ## Search Queries
 
-Run these in GitHub issue search, sorted by `Recently updated`.
+Run these in GitHub issue search, sorted by `Recently updated`. Before each run, update the `updated:>=YYYY-MM-DD` filter to about 30 days ago so the searches stay fresh.
 
 ```text
 "bounty" "USDC" state:open updated:>=2026-05-01
