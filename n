@@ -1,0 +1,24 @@
+# GitHub-Based Marketing Strategy
+
+This repository contains a GitHub-based marketing strategy to find growth opportunities. The strategy involves scraping relevant information from GitHub and other platforms, and then using this data to inform business development tasks.
+
+## Scraping
+
+The scraping process involves using the `requests` and `BeautifulSoup` libraries to extract relevant information from GitHub and other platforms. The scraped data is then stored in a Pandas DataFrame.
+
+## Analysis
+
+The scraped data is then analyzed to identify growth opportunities. For example, we can filter the data to only include projects with a certain keyword.
+
+## Business Development
+
+The growth opportunities identified through the analysis are then used to inform business development tasks. For example, we can create a business development task proposal to manage the Consensus HK Campaign.
+
+## Issues
+
+* AI agents failed to produce working code. Try a simpler approach.
+* Output complete, working code for EACH file.
+* Use `language:path/to/file` syntax for every file.
+* Include all imports and dependencies.
+* Handle errors gracefully.
+* Follow existing code patterns from the repo context.
