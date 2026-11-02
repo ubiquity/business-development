@@ -53,3 +53,15 @@ body:
         - [Description of link](URL)
     validations:
       required: false
+
+  - type: textarea
+    id: github-marketing
+    attributes:
+      label: GitHub-Based Marketing Activities
+      description: Describe any GitHub-based marketing activities or strategies.
+      placeholder: |
+        - Conducting GitHub searches for specific terms
+        - Creating and managing GitHub repositories
+        - Engaging with GitHub communities
+    validations:
+      required: false
